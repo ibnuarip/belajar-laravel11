@@ -23,6 +23,7 @@
                 {{ $slot }}
             </div>
         </main>
+        <x-footer></x-footer>
     </div>
 
 </body>
