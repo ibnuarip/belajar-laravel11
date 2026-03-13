@@ -1,3 +1,6 @@
-@props(['active' => false])
-<a {{ $attributes }}{{ $active ? 'aria-current=page' : 'aria-current=false' }}
-    class="rounded-md px-3 py-2 text-sm font-medium {{ $active ? 'bg-gray-950/50 text-white' : 'text-gray-300 hover:bg-white/5 hover:text-white' }}">{{ $slot }}</a>
+@props(['active' => false, 'mobile' => false])
+
+<a {{ $attributes }} aria-current="{{ $active ? 'page' : 'false' }}"
+    class="{{ $mobile ? 'block rounded-md px-3 py-2 text-base font-medium' : 'rounded-md px-3 py-2 text-sm font-medium' }} {{ $active ? 'bg-primary-600 text-white shadow-md' : 'text-primary-100 hover:bg-primary-800 hover:text-white transition-all duration-200' }}">
+    {{ $slot }}
+</a>

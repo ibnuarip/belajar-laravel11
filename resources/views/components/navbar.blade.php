@@ -1,17 +1,49 @@
-  <nav class="bg-slate-800">
+  <nav x-data="{ 
+      activeSection: 'home',
+      init() {
+          this.updateActiveSection();
+          window.addEventListener('scroll', () => this.updateActiveSection(), { passive: true });
+      },
+      updateActiveSection() {
+          const sections = ['home', 'blog', 'about', 'contact'];
+          const scrollPosition = window.scrollY + 100;
+
+          sections.forEach(section => {
+              const el = document.getElementById(section);
+              if (el) {
+                  const top = el.offsetTop;
+                  const height = el.offsetHeight;
+                  if (scrollPosition >= top && scrollPosition < top + height) {
+                      this.activeSection = section;
+                  }
+              }
+          });
+      }
+  }" class="bg-primary-950/90 backdrop-blur-md sticky top-0 z-50 shadow-lg border-b border-primary-800/50">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div class="flex h-16 items-center justify-between">
               <div class="flex items-center">
                   <div class="shrink-0">
-                      <img src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500"
-                          alt="Your Company" class="size-8" />
+                      <img src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=blue&shade=500"
+                          alt="Ibnu" class="size-8" />
                   </div>
                   <div class="hidden md:block">
                       <div class="ml-10 flex items-baseline space-x-4">
-                          <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
-                          <x-nav-link href="/posts" :active="request()->is('posts*')">Blog</x-nav-link>
-                          <x-nav-link href="/about" :active="request()->is('about')">About</x-nav-link>
-                          <x-nav-link href="/contact" :active="request()->is('contact')">Contact</x-nav-link>
+                          <x-nav-link href="/#home" 
+                              x-bind:class="activeSection === 'home' ? 'bg-primary-600 text-white shadow-md' : 'text-primary-100 hover:bg-primary-800 hover:text-white'"
+                              @click="activeSection = 'home'">Home</x-nav-link>
+                          
+                          <x-nav-link href="/#blog" 
+                              x-bind:class="activeSection === 'blog' || {{ request()->is('posts*') ? 'true' : 'false' }} ? 'bg-primary-600 text-white shadow-md' : 'text-primary-100 hover:bg-primary-800 hover:text-white'"
+                              @click="activeSection = 'blog'">Blog</x-nav-link>
+                          
+                          <x-nav-link href="/#about" 
+                              x-bind:class="activeSection === 'about' ? 'bg-primary-600 text-white shadow-md' : 'text-primary-100 hover:bg-primary-800 hover:text-white'"
+                              @click="activeSection = 'about'">About</x-nav-link>
+                          
+                          <x-nav-link href="/#contact" 
+                              x-bind:class="activeSection === 'contact' ? 'bg-primary-600 text-white shadow-md' : 'text-primary-100 hover:bg-primary-800 hover:text-white'"
+                              @click="activeSection = 'contact'">Contact</x-nav-link>
                       </div>
                   </div>
               </div>
@@ -25,8 +57,7 @@
                               id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                               <span class="absolute -inset-1.5"></span>
                               <span class="sr-only">Open user menu</span>
-                              <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                  alt=""
+                              <img src="{{ asset('img/kelinci.jpg') }}" alt="Profile"
                                   class="size-8 rounded-full outline -outline-offset-1 outline-white/10" />
                           </button>
 
@@ -80,20 +111,31 @@
           x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 translate-y-0"
           x-transition:leave-end="opacity-0 -translate-y-1" class="md:hidden" id="mobile-menu" style="display: none;">
           <div class="space-y-1 px-2 pt-2 pb-3 sm:px-3">
-              <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
-              <x-nav-link href="/posts" :active="request()->is('posts*')">Blog</x-nav-link>
-              <x-nav-link href="/about" :active="request()->is('about')">About</x-nav-link>
-              <x-nav-link href="/contact" :active="request()->is('contact')">Contact</x-nav-link>
+              <x-nav-link href="/#home" :mobile="true" 
+                  x-bind:class="activeSection === 'home' ? 'bg-primary-600 text-white shadow-md' : 'text-primary-100 hover:bg-primary-800'"
+                  @click="mobileMenuOpen = false; activeSection = 'home'">Home</x-nav-link>
+              
+              <x-nav-link href="/#blog" :mobile="true" 
+                  x-bind:class="activeSection === 'blog' || {{ request()->is('posts*') ? 'true' : 'false' }} ? 'bg-primary-600 text-white shadow-md' : 'text-primary-100 hover:bg-primary-800'"
+                  @click="mobileMenuOpen = false; activeSection = 'blog'">Blog</x-nav-link>
+              
+              <x-nav-link href="/#about" :mobile="true" 
+                  x-bind:class="activeSection === 'about' ? 'bg-primary-600 text-white shadow-md' : 'text-primary-100 hover:bg-primary-800'"
+                  @click="mobileMenuOpen = false; activeSection = 'about'">About</x-nav-link>
+              
+              <x-nav-link href="/#contact" :mobile="true" 
+                  x-bind:class="activeSection === 'contact' ? 'bg-primary-600 text-white shadow-md' : 'text-primary-100 hover:bg-primary-800'"
+                  @click="mobileMenuOpen = false; activeSection = 'contact'">Contact</x-nav-link>
           </div>
           <div class="border-t border-white/10 pt-4 pb-3">
               <div class="flex items-center px-5">
                   <div class="shrink-0">
-                      <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                          alt="" class="size-10 rounded-full outline -outline-offset-1 outline-white/10" />
+                      <img src="{{ asset('img/kelinci.jpg') }}"
+                          alt="Profile" class="size-10 rounded-full outline -outline-offset-1 outline-white/10" />
                   </div>
                   <div class="ml-3 min-w-0 flex-1">
-                      <div class="text-base/5 font-medium text-white truncate">Tom Cook</div>
-                      <div class="text-sm font-medium text-gray-400 truncate">tom@example.com</div>
+                      <div class="text-base/5 font-medium text-white truncate">Ibnu</div>
+                      <div class="text-sm font-medium text-gray-400 truncate">ibnu@example.com</div>
                   </div>
               </div>
               <div class="mt-3 space-y-1 px-2">

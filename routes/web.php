@@ -6,11 +6,15 @@ use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('home', ['title' => 'Home Page']);
+    return view('home', [
+        'title' => 'Home Page',
+        'name' => 'Ibnu',
+        'posts' => Post::latest()->take(3)->get()
+    ]);
 });
 
 Route::get('/about', function () {
-    return view('about', ['name' => 'Ibnu', 'title' => 'Contact']);
+    return view('about', ['name' => 'Ibnu', 'title' => 'About Page']);
 });
 
 Route::get('/posts', function () {
