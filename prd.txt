@@ -1,6 +1,0 @@
-Product Requirement Document
-1. Fitur post
-2. Landing page
-3. Dashboad Admin
-5. Export Laporan
-6. Biaya maintenance
