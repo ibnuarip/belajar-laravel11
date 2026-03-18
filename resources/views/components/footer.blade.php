@@ -9,7 +9,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                         </svg>
                     </div>
-                    <span class="text-2xl font-bold tracking-tight text-white group-hover:text-primary-400 transition-colors">IBNU</span>
+                    <span class="text-2xl font-bold tracking-tight text-white group-hover:text-primary-400 transition-colors">NexaCode</span>
                 </a>
                 <p class="mt-6 text-primary-200/70 text-base leading-relaxed max-w-md">
                     Membangun ekosistem digital yang inovatif dengan fokus pada pengalaman pengguna yang luar biasa dan performa yang optimal. Mari berkolaborasi untuk menciptakan sesuatu yang hebat.
@@ -34,10 +34,10 @@
             <div>
                 <h3 class="text-sm font-bold uppercase tracking-widest text-primary-400">Navigation</h3>
                 <ul class="mt-6 space-y-4">
-                    <li><a href="/#home" class="text-primary-200/80 hover:text-white flex items-center group transition-colors"><span class="w-2 h-0.5 bg-primary-600 mr-2 group-hover:w-4 transition-all"></span>Home</a></li>
-                    <li><a href="/#blog" class="text-primary-200/80 hover:text-white flex items-center group transition-colors"><span class="w-2 h-0.5 bg-primary-600 mr-2 group-hover:w-4 transition-all"></span>Blog</a></li>
-                    <li><a href="/#about" class="text-primary-200/80 hover:text-white flex items-center group transition-colors"><span class="w-2 h-0.5 bg-primary-600 mr-2 group-hover:w-4 transition-all"></span>About</a></li>
-                    <li><a href="/#contact" class="text-primary-200/80 hover:text-white flex items-center group transition-colors"><span class="w-2 h-0.5 bg-primary-600 mr-2 group-hover:w-4 transition-all"></span>Contact</a></li>
+                    <li><a href="/#home" @click.prevent="scrollTo('home')" class="text-primary-200/80 hover:text-white flex items-center group transition-colors"><span class="w-2 h-0.5 bg-primary-600 mr-2 group-hover:w-4 transition-all"></span>Home</a></li>
+                    <li><a href="/blog" class="text-primary-200/80 hover:text-white flex items-center group transition-colors"><span class="w-2 h-0.5 bg-primary-600 mr-2 group-hover:w-4 transition-all"></span>Blog</a></li>
+                    <li><a href="/about" @click.prevent="scrollTo('about')" class="text-primary-200/80 hover:text-white flex items-center group transition-colors"><span class="w-2 h-0.5 bg-primary-600 mr-2 group-hover:w-4 transition-all"></span>About</a></li>
+                    <li><a href="/contact" @click.prevent="scrollTo('contact')" class="text-primary-200/80 hover:text-white flex items-center group transition-colors"><span class="w-2 h-0.5 bg-primary-600 mr-2 group-hover:w-4 transition-all"></span>Contact</a></li>
                 </ul>
             </div>
 
@@ -51,9 +51,8 @@
                     </li>
                     <li class="flex items-center">
                         <svg class="w-5 h-5 text-primary-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
-                        <a href="mailto:ibnu@example.com" class="text-primary-200/80 hover:text-white transition-colors">ibnu@example.com</a>
+                        <a href="mailto:nexacode@gmail.com" class="text-primary-200/80 hover:text-white transition-colors">nexacode@gmail.com</a>
                     </li>
-Ashley
                     <li class="flex items-center">
                         <svg class="w-5 h-5 text-primary-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
                         <span class="text-primary-200/80">+62 812 3456 7890</span>
@@ -69,7 +68,7 @@ Ashley
                 <span class="text-primary-700">•</span>
                 <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
                 <span class="text-primary-700">•</span>
-                <span class="flex items-center">Made with <svg class="w-4 h-4 text-red-500 mx-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" /></svg> by Ibnu</span>
+                <span class="flex items-center">Made with <svg class="w-4 h-4 text-red-500 mx-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" /></svg> by NexaCode Team</span>
             </div>
         </div>
     </div>

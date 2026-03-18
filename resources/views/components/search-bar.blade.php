@@ -1,6 +1,6 @@
 <div class="py-4 px-4 mx-auto max-w-screen-xl lg:px-6">
     <div class="mx-auto max-w-screen-md sm:text-center">
-        <form action="/posts" method="GET">
+        <form action="/blog" method="GET">
             @if (request('category'))
                 <input type="hidden" name="category" value="{{ request('category') }}">
             @endif

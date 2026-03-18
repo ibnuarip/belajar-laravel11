@@ -3,7 +3,7 @@
     <x-section class="!py-8 sm:!py-16">
         <article class="mx-auto w-full max-w-4xl prose dark:prose-invert">
             <header class="mb-4 lg:mb-6 not-format">
-                <a href="/posts" class="font-medium text-sm text-primary-600 hover:underline inline-flex items-center mb-6">
+                <a href="/blog" class="font-medium text-sm text-primary-600 hover:underline inline-flex items-center mb-6">
                     <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
                     </svg>
@@ -15,7 +15,7 @@
                             src="https://flowbite.com/docs/images/people/profile-picture-2.jpg"
                             alt="{{ $post->author->name }}">
                         <div>
-                            <a href="/posts?author={{ $post->author->username }}"
+                            <a href="/blog?author={{ $post->author->username }}"
                                 class="text-xl font-bold text-gray-900 dark:text-white hover:underline">{{ $post->author->name }}</a>
                             <p class="text-base text-gray-500 dark:text-gray-400 mb-1">
                                 <time pubdate datetime="{{ $post->created_at->toIso8601String() }}" title="{{ $post->created_at->format('F jS, Y') }}">

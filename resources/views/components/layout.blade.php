@@ -13,7 +13,33 @@
 
 <body class="h-full">
 
-    <div class="min-h-full" x-data="{ mobileMenuOpen: false, profileMenuOpen: false }">
+    <div class="min-h-full" x-data="{ 
+        mobileMenuOpen: false, 
+        profileMenuOpen: false,
+        scrollTo(id) {
+            if (window.location.pathname !== '/') {
+                if (id === 'home') {
+                    window.location.href = '/';
+                } else if (id === 'blog') {
+                    window.location.href = '/blog';
+                } else {
+                    window.location.href = '/' + id;
+                }
+                return;
+            }
+            const el = document.getElementById(id);
+            if (el) {
+                el.scrollIntoView({ behavior: 'smooth' });
+                history.replaceState(null, null, window.location.pathname + window.location.search);
+            }
+        }
+    }" x-init="
+        if (window.location.hash) {
+            setTimeout(() => {
+                history.replaceState(null, null, window.location.pathname + window.location.search);
+            }, 50);
+        }
+    ">
         <x-navbar></x-navbar>
 
         <x-header>{{ $title ?? 'Home Page' }}</x-header>

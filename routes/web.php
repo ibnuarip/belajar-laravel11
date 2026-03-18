@@ -14,15 +14,19 @@ Route::get('/', function () {
 });
 
 Route::get('/about', function () {
-    return view('about', ['name' => 'Ibnu', 'title' => 'About Page']);
+    return view('about', ['title' => 'About Me', 'name' => 'Ibnu']);
 });
 
-Route::get('/posts', function () {
+Route::get('/contact', function () {
+    return view('contact', ['title' => 'Contact Us']);
+});
+
+Route::get('/blog', function () {
 
     return view('posts', ['title' => 'Blog', 'posts' => Post::filter(request(['search', 'category', 'author']))->latest()->paginate(9)->withQueryString()]);
 });
 
-Route::get('posts/{post:slug}', function (Post $post) {
+Route::get('blog/{post:slug}', function (Post $post) {
     return view('post', ['title' => 'Single Post', 'post' => $post]);
 });
 
@@ -36,6 +40,3 @@ Route::get('categories/{category:slug}', function (Category $category) {
     return view('posts', ['title' => 'Articles in:  ' . $category->name, 'posts' => $category->posts]);
 });
 
-Route::get('/contact', function () {
-    return view('contact', ['title' => 'Contact']);
-});

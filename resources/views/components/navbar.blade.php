@@ -1,4 +1,4 @@
-  <nav x-data="{ 
+  <nav x-data="{
       activeSection: 'home',
       init() {
           this.updateActiveSection();
@@ -7,7 +7,7 @@
       updateActiveSection() {
           const sections = ['home', 'blog', 'about', 'contact'];
           const scrollPosition = window.scrollY + 100;
-
+  
           sections.forEach(section => {
               const el = document.getElementById(section);
               if (el) {
@@ -19,7 +19,8 @@
               }
           });
       }
-  }" class="bg-primary-950/90 backdrop-blur-md sticky top-0 z-50 shadow-lg border-b border-primary-800/50">
+  }"
+      class="bg-primary-950/90 backdrop-blur-md sticky top-0 z-50 shadow-lg border-b border-primary-800/50">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div class="flex h-16 items-center justify-between">
               <div class="flex items-center">
@@ -29,21 +30,30 @@
                   </div>
                   <div class="hidden md:block">
                       <div class="ml-10 flex items-baseline space-x-4">
-                          <x-nav-link href="/#home" 
-                              x-bind:class="activeSection === 'home' ? 'bg-primary-600 text-white shadow-md' : 'text-primary-100 hover:bg-primary-800 hover:text-white'"
-                              @click="activeSection = 'home'">Home</x-nav-link>
-                          
-                          <x-nav-link href="/#blog" 
-                              x-bind:class="activeSection === 'blog' || {{ request()->is('posts*') ? 'true' : 'false' }} ? 'bg-primary-600 text-white shadow-md' : 'text-primary-100 hover:bg-primary-800 hover:text-white'"
+                          <x-nav-link href="{{ request()->is('/') ? '#home' : '/#home' }}"
+                              x-bind:class="activeSection === 'home' && {{ request()->is('/') ? 'true' : 'false' }} ?
+                                  'bg-primary-600 text-white shadow-md' :
+                                  'text-primary-100 hover:bg-primary-800 hover:text-white'"
+                              @click.prevent="scrollTo('home'); activeSection = 'home'">Home</x-nav-link>
+
+                          <x-nav-link href="/blog"
+                              x-bind:class="(activeSection === 'blog' && {{ request()->is('/') ? 'true' : 'false' }}) ||
+                              {{ request()->is('blog*') ? 'true' : 'false' }} ? 'bg-primary-600 text-white shadow-md' :
+                                  'text-primary-100 hover:bg-primary-800 hover:text-white'"
                               @click="activeSection = 'blog'">Blog</x-nav-link>
-                          
-                          <x-nav-link href="/#about" 
-                              x-bind:class="activeSection === 'about' ? 'bg-primary-600 text-white shadow-md' : 'text-primary-100 hover:bg-primary-800 hover:text-white'"
-                              @click="activeSection = 'about'">About</x-nav-link>
-                          
-                          <x-nav-link href="/#contact" 
-                              x-bind:class="activeSection === 'contact' ? 'bg-primary-600 text-white shadow-md' : 'text-primary-100 hover:bg-primary-800 hover:text-white'"
-                              @click="activeSection = 'contact'">Contact</x-nav-link>
+
+                          <x-nav-link href="/about"
+                              x-bind:class="(activeSection === 'about' && {{ request()->is('/') ? 'true' : 'false' }}) ||
+                              {{ request()->is('about*') ? 'true' : 'false' }} ? 'bg-primary-600 text-white shadow-md' :
+                                  'text-primary-100 hover:bg-primary-800 hover:text-white'"
+                              @click.prevent="scrollTo('about'); activeSection = 'about'">About</x-nav-link>
+
+                          <x-nav-link href="/contact"
+                              x-bind:class="(activeSection === 'contact' && {{ request()->is('/') ? 'true' : 'false' }}) ||
+                              {{ request()->is('contact*') ? 'true' : 'false' }} ?
+                                  'bg-primary-600 text-white shadow-md' :
+                                  'text-primary-100 hover:bg-primary-800 hover:text-white'"
+                              @click.prevent="scrollTo('contact'); activeSection = 'contact'">Contact</x-nav-link>
                       </div>
                   </div>
               </div>
@@ -111,31 +121,38 @@
           x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 translate-y-0"
           x-transition:leave-end="opacity-0 -translate-y-1" class="md:hidden" id="mobile-menu" style="display: none;">
           <div class="space-y-1 px-2 pt-2 pb-3 sm:px-3">
-              <x-nav-link href="/#home" :mobile="true" 
-                  x-bind:class="activeSection === 'home' ? 'bg-primary-600 text-white shadow-md' : 'text-primary-100 hover:bg-primary-800'"
-                  @click="mobileMenuOpen = false; activeSection = 'home'">Home</x-nav-link>
-              
-              <x-nav-link href="/#blog" :mobile="true" 
-                  x-bind:class="activeSection === 'blog' || {{ request()->is('posts*') ? 'true' : 'false' }} ? 'bg-primary-600 text-white shadow-md' : 'text-primary-100 hover:bg-primary-800'"
+              <x-nav-link href="{{ request()->is('/') ? '#home' : '/#home' }}" :mobile="true"
+                  x-bind:class="activeSection === 'home' && {{ request()->is('/') ? 'true' : 'false' }} ?
+                      'bg-primary-600 text-white shadow-md' : 'text-primary-100 hover:bg-primary-800'"
+                  @click.prevent="mobileMenuOpen = false; setTimeout(() => scrollTo('home'), 150); activeSection = 'home'">Home</x-nav-link>
+
+              <x-nav-link href="/blog" :mobile="true"
+                  x-bind:class="(activeSection === 'blog' && {{ request()->is('/') ? 'true' : 'false' }}) ||
+                  {{ request()->is('blog*') ? 'true' : 'false' }} ? 'bg-primary-600 text-white shadow-md' :
+                      'text-primary-100 hover:bg-primary-800'"
                   @click="mobileMenuOpen = false; activeSection = 'blog'">Blog</x-nav-link>
-              
-              <x-nav-link href="/#about" :mobile="true" 
-                  x-bind:class="activeSection === 'about' ? 'bg-primary-600 text-white shadow-md' : 'text-primary-100 hover:bg-primary-800'"
-                  @click="mobileMenuOpen = false; activeSection = 'about'">About</x-nav-link>
-              
-              <x-nav-link href="/#contact" :mobile="true" 
-                  x-bind:class="activeSection === 'contact' ? 'bg-primary-600 text-white shadow-md' : 'text-primary-100 hover:bg-primary-800'"
-                  @click="mobileMenuOpen = false; activeSection = 'contact'">Contact</x-nav-link>
+
+              <x-nav-link href="/about" :mobile="true"
+                  x-bind:class="(activeSection === 'about' && {{ request()->is('/') ? 'true' : 'false' }}) ||
+                  {{ request()->is('about*') ? 'true' : 'false' }} ? 'bg-primary-600 text-white shadow-md' :
+                      'text-primary-100 hover:bg-primary-800'"
+                  @click.prevent="mobileMenuOpen = false; setTimeout(() => scrollTo('about'), 150); activeSection = 'about'">About</x-nav-link>
+
+              <x-nav-link href="/contact" :mobile="true"
+                  x-bind:class="(activeSection === 'contact' && {{ request()->is('/') ? 'true' : 'false' }}) ||
+                  {{ request()->is('contact*') ? 'true' : 'false' }} ? 'bg-primary-600 text-white shadow-md' :
+                      'text-primary-100 hover:bg-primary-800'"
+                  @click.prevent="mobileMenuOpen = false; setTimeout(() => scrollTo('contact'), 150); activeSection = 'contact'">Contact</x-nav-link>
           </div>
           <div class="border-t border-white/10 pt-4 pb-3">
               <div class="flex items-center px-5">
                   <div class="shrink-0">
-                      <img src="{{ asset('img/kelinci.jpg') }}"
-                          alt="Profile" class="size-10 rounded-full outline -outline-offset-1 outline-white/10" />
+                      <img src="{{ asset('img/kelinci.jpg') }}" alt="Profile"
+                          class="size-10 rounded-full outline -outline-offset-1 outline-white/10" />
                   </div>
                   <div class="ml-3 min-w-0 flex-1">
                       <div class="text-base/5 font-medium text-white truncate">Ibnu</div>
-                      <div class="text-sm font-medium text-gray-400 truncate">ibnu@example.com</div>
+                      <div class="text-sm font-medium text-gray-400 truncate">nexacode@gmail.com</div>
                   </div>
               </div>
               <div class="mt-3 space-y-1 px-2">
