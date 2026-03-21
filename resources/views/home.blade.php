@@ -6,19 +6,7 @@
         <div class="relative bg-white dark:bg-gray-900 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 overflow-hidden mb-12">
             <div class="mx-auto max-w-7xl px-6 py-12 sm:py-20 lg:grid lg:grid-cols-2 lg:gap-x-16 lg:items-center lg:px-8 lg:py-24">
                 <div class="max-w-2xl lg:mx-0">
-                    <div class="flex">
-                        <div class="relative flex items-center gap-x-4 rounded-full px-4 py-1.5 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20 dark:text-gray-400 dark:ring-gray-800 transition duration-200">
-                            <span class="font-bold text-primary-600">New update</span>
-                            <div class="h-4 w-px bg-gray-900/10 dark:bg-gray-800"></div>
-                            <a href="#blog" @click.prevent="scrollTo('blog')" class="flex items-center gap-x-1 hover:text-primary-600 transition-colors">
-                                Check out recent posts
-                                <svg class="h-4 w-4 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                    <h1 class="mt-10 text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-6xl leading-[1.1]">
+                    <h1 class="mt-2 text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-6xl leading-[1.1]">
                         Membangun Masa Depan Digital Anda
                     </h1>
                     <p class="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-400">

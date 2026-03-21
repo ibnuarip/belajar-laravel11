@@ -65,3 +65,16 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 # belajar-laravel-11
+
+## Cara Menjalankan
+```bash
+docker compose up --build # untuk build image
+docker compose up -d # untuk menjalankan container
+pnpm run dev # untuk menjalankan server laravel
+```
+
+## Cara Menghentikan
+```bash
+docker compose down # untuk menghentikan container
+```
+
