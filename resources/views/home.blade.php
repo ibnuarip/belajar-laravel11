@@ -4,9 +4,9 @@
     <!-- HERO SECTION -->
     <section id="home">
         <div class="relative bg-white dark:bg-gray-900 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 overflow-hidden mb-12">
-            <div class="mx-auto max-w-7xl px-6 py-12 sm:py-20 lg:grid lg:grid-cols-2 lg:gap-x-16 lg:items-center lg:px-8 lg:py-24">
+            <div class="mx-auto max-w-7xl px-6 py-8 sm:py-10 lg:grid lg:grid-cols-2 lg:gap-x-16 lg:items-start lg:px-8 lg:py-10 lg:mt-6">
                 <div class="max-w-2xl lg:mx-0">
-                    <h1 class="mt-2 text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-6xl leading-[1.1]">
+                    <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-6xl leading-[1.1]">
                         Membangun Masa Depan Digital Anda
                     </h1>
                     <p class="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-400">
@@ -22,8 +22,8 @@
                     </div>
                 </div>
                 
-                <div class="mt-16 sm:mt-24 lg:mt-0 w-full">
-                    <div class="relative w-full rounded-2xl group">
+                <div class="mt-16 sm:mt-24 lg:mt-0 flex justify-center lg:justify-end">
+                    <div class="relative w-full max-w-md rounded-2xl group">
                         <div class="absolute -inset-2 bg-gradient-to-tr from-primary-600 to-indigo-600 rounded-3xl blur-xl opacity-20 group-hover:opacity-40 transition duration-500 hidden lg:block"></div>
                         <img src="{{ asset('img/hero-cute.png') }}" alt="Hero Workspace Pixar Style" class="relative w-full h-auto object-cover rounded-2xl shadow-2xl border border-gray-100 dark:border-gray-800 transition duration-500 hover:scale-[1.02] hover:-translate-y-1 bg-white/50 dark:bg-black/50 backdrop-blur-sm">
                     </div>

@@ -34,9 +34,11 @@
                     </div>
                 </div>
             </div>
-            <div class="mt-8 lg:mt-0 relative group">
-                <div class="absolute -inset-1 bg-gradient-to-r from-primary-600 to-indigo-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
-                <img class="relative w-full rounded-2xl shadow-2xl transition duration-500 group-hover:scale-[1.01]" src="{{ asset('img/about-cute.png') }}" alt="Profile Image">
+            <div class="mt-8 lg:mt-0 flex justify-center">
+                <div class="relative group w-full max-w-sm">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-primary-600 to-indigo-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+                    <img class="relative w-full rounded-2xl shadow-2xl transition duration-500 group-hover:scale-[1.01]" src="{{ asset('img/about-cute.png') }}" alt="Profile Image">
+                </div>
             </div>
         </div>
     </x-section>
