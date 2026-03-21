@@ -59,6 +59,11 @@
               </div>
               <div class="hidden md:block">
                   <div class="ml-4 flex items-center md:ml-6">
+                      <!-- Auth Buttons -->
+                      <div class="flex items-center gap-x-4 mr-4 border-r border-primary-800 pr-4">
+                          <a href="/login" class="text-sm font-semibold text-primary-100 hover:text-white transition-colors">Login</a>
+                          <a href="/register" class="rounded-lg bg-primary-600 px-4 py-2 text-sm font-bold text-white shadow-sm hover:bg-primary-700 transition duration-200">Register</a>
+                      </div>
 
                       <!-- Profile dropdown -->
                       <div class="relative ml-3">
@@ -145,6 +150,12 @@
                   @click.prevent="mobileMenuOpen = false; setTimeout(() => scrollTo('contact'), 150); activeSection = 'contact'">Contact</x-nav-link>
           </div>
           <div class="border-t border-white/10 pt-4 pb-3">
+              <div class="flex items-center px-5 mb-4">
+                  <div class="flex flex-col w-full gap-y-2">
+                      <a href="/login" class="flex items-center justify-center rounded-md px-3 py-2 text-base font-medium text-primary-100 hover:bg-primary-800 hover:text-white">Login</a>
+                      <a href="/register" class="flex items-center justify-center rounded-md bg-primary-600 px-3 py-2 text-base font-medium text-white shadow-md hover:bg-primary-700">Register</a>
+                  </div>
+              </div>
               <div class="flex items-center px-5">
                   <div class="shrink-0">
                       <img src="{{ asset('img/kelinci.jpg') }}" alt="Profile"
