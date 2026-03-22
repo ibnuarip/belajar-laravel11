@@ -18,27 +18,30 @@
         mobileMenuOpen: false, 
         profileMenuOpen: false,
         scrollTo(id) {
-            if (window.location.pathname !== '/') {
-                if (id === 'home') {
-                    window.location.href = '/';
-                } else if (id === 'blog') {
-                    window.location.href = '/blog';
-                } else {
-                    window.location.href = '/' + id;
-                }
+            if (window.location.pathname !== '/' && id !== 'blog') {
+                window.location.href = '/#' + id;
                 return;
             }
+            
+            if (id === 'blog' && window.location.pathname !== '/blog') {
+                window.location.href = '/blog';
+                return;
+            }
+
             const el = document.getElementById(id);
             if (el) {
                 el.scrollIntoView({ behavior: 'smooth' });
-                history.replaceState(null, null, window.location.pathname + window.location.search);
+                // Update URL dengan hash tanpa reload
+                history.pushState(null, null, '#' + id);
             }
         }
     }" x-init="
         if (window.location.hash) {
+            const id = window.location.hash.substring(1);
             setTimeout(() => {
-                history.replaceState(null, null, window.location.pathname + window.location.search);
-            }, 50);
+                const el = document.getElementById(id);
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+            }, 200);
         }
     ">
         <x-navbar></x-navbar>

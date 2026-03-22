@@ -60,9 +60,15 @@
               <div class="hidden md:block">
                   <div class="ml-4 flex items-center md:ml-6">
                       <!-- Auth Buttons -->
-                      <div class="flex items-center gap-x-4 mr-4 border-r border-primary-800 pr-4">
-                          <a href="/login" class="text-sm font-semibold text-primary-100 hover:text-white transition-colors">Login</a>
-                          <a href="/register" class="rounded-lg bg-primary-600 px-4 py-2 text-sm font-bold text-white shadow-sm hover:bg-primary-700 transition duration-200">Register</a>
+                      <div class="flex items-center gap-x-3 mr-4 border-r border-primary-800/50 pr-4">
+                          <a href="/login" 
+                             class="px-4 py-2 text-sm font-medium text-primary-100 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300 ease-in-out border border-transparent hover:border-white/20">
+                             Login
+                          </a>
+                          <a href="/register" 
+                             class="px-5 py-2 text-sm font-bold text-white bg-gradient-to-r from-primary-600 to-primary-500 hover:from-primary-500 hover:to-primary-400 rounded-lg shadow-[0_4px_14px_0_rgba(37,99,235,0.39)] hover:shadow-primary-500/50 transform hover:-translate-y-0.5 transition-all duration-300 ease-in-out active:scale-95">
+                             Register
+                          </a>
                       </div>
 
                       <!-- Profile dropdown -->
@@ -150,10 +156,16 @@
                   @click.prevent="mobileMenuOpen = false; setTimeout(() => scrollTo('contact'), 150); activeSection = 'contact'">Contact</x-nav-link>
           </div>
           <div class="border-t border-white/10 pt-4 pb-3">
-              <div class="flex items-center px-5 mb-4">
-                  <div class="flex flex-col w-full gap-y-2">
-                      <a href="/login" class="flex items-center justify-center rounded-md px-3 py-2 text-base font-medium text-primary-100 hover:bg-primary-800 hover:text-white">Login</a>
-                      <a href="/register" class="flex items-center justify-center rounded-md bg-primary-600 px-3 py-2 text-base font-medium text-white shadow-md hover:bg-primary-700">Register</a>
+              <div class="px-4 mb-4">
+                  <div class="grid grid-cols-2 gap-3 w-full">
+                      <a href="/login" 
+                         class="flex items-center justify-center rounded-xl px-4 py-2.5 text-base font-medium text-primary-100 border border-primary-800/50 hover:bg-primary-800/40 hover:text-white transition-all duration-300">
+                         Login
+                      </a>
+                      <a href="/register" 
+                         class="flex items-center justify-center rounded-xl bg-gradient-to-r from-primary-600 to-primary-500 px-4 py-2.5 text-base font-bold text-white shadow-lg shadow-primary-900/20 active:scale-95 transition-all duration-300">
+                         Register
+                      </a>
                   </div>
               </div>
               <div class="flex items-center px-5">
@@ -163,7 +175,7 @@
                   </div>
                   <div class="ml-3 min-w-0 flex-1">
                       <div class="text-base/5 font-medium text-white truncate">Ibnu</div>
-                      <div class="text-sm font-medium text-gray-400 truncate">nexacode@gmail.com</div>
+                      <div class="text-sm font-medium text-gray-400 truncate">admin@arsipcode.dev</div>
                   </div>
               </div>
               <div class="mt-3 space-y-1 px-2">
